@@ -13,9 +13,9 @@ export interface IInfo {
 }
 
 export interface IUser {
-  gender: Gender;
+  gender: EGender;
   name: IName;
-  location: Location;
+  location: ILocation;
   email: string;
   login: ILogin;
   dob: IDob;
@@ -32,7 +32,7 @@ export interface IDob {
   age: number;
 }
 
-export enum Gender {
+export enum EGender {
   Female = "female",
   Male = "male"
 }

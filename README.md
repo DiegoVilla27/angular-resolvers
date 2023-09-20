@@ -38,7 +38,7 @@ Install & configure Husky (Git Hooks), Lint Staged (Commits Staged Linter), Comm
 - Create a git hook to do a pre-commit and thus run the linter before each commit
   - `npx husky add .husky/pre-commit "npx lint-staged"`
 - Create a git hook to do a pre-push and thus run the tests before each push
-  - `npx husky add .husky/pre-push "ng test"`
+  - `npx husky add .husky/pre-push "ng test --watch=false"`
 
 > If Husky doesn't work on MacOS, run the command (Within the project): _`chmod ug+x .husky/*`_
 

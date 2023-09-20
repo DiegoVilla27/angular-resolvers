@@ -4,8 +4,10 @@ import { IUser } from "src/app/interfaces/user.interface";
 
 @Component({
   selector: "app-user",
-  templateUrl: "./user.component.html",
-  styleUrls: []
+  template: `
+    <h1>USER: {{ user.id }}</h1>
+    <pre>{{ user | json }}</pre>
+  `
 })
 export class UserComponent {
   user!: IUser;

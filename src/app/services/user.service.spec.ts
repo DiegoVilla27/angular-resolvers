@@ -1,10 +1,7 @@
-import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { RouterTestingModule } from "@angular/router/testing";
-import { AppComponent } from "./app.component";
-import { UserService } from "./services/user.service";
-import { EGender, IUser } from "./interfaces/user.interface";
+import { TestBed } from "@angular/core/testing";
 import { of } from "rxjs";
-import { HttpClientModule } from "@angular/common/http";
+import { EGender, IUser } from "../interfaces/user.interface";
+import { UserService } from "./user.service";
 
 const usersExpected: IUser[] = [
   {
@@ -123,9 +120,8 @@ const usersExpected: IUser[] = [
   }
 ];
 
-describe("AppComponent Test", () => {
-  let component: AppComponent;
-  let fixture: ComponentFixture<AppComponent>;
+describe("UserService", () => {
+  let service: UserService;
   let spyUserService: jasmine.SpyObj<UserService>;
 
   beforeEach(async () => {
@@ -134,22 +130,18 @@ describe("AppComponent Test", () => {
     });
 
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule, HttpClientModule],
-      declarations: [AppComponent],
       providers: [
         {
           provide: UserService,
           useValue: spyUserService
         }
       ]
-    }).compileComponents();
+    });
 
-    fixture = TestBed.createComponent(AppComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    service = TestBed.inject(UserService);
   });
 
   it("Create", () => {
-    expect(component).toBeTruthy();
+    expect(service).toBeTruthy();
   });
 });

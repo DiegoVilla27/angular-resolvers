@@ -1,7 +1,7 @@
-<h1>USERS</h1>
+<h1>Welcome to resolvers example</h1>
 
-<ul>
-  <li *ngFor="let user of users">
-    {{ user.name.first + '' + user.name.last}}
-  </li>
-</ul>
+<button (click)="goToUsers()">
+  Go to users ->
+</button>
+
+<router-outlet></router-outlet>

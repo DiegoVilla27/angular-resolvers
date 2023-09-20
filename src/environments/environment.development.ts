@@ -1,3 +1,3 @@
 export const environment = {
-  API_URL: "https://randomuser.me/api"
+  API_URL: "https://reqres.in/api"
 };

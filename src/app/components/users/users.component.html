@@ -1,0 +1,9 @@
+<h1>USERS</h1>
+
+<ul>
+  <li *ngFor="let user of users" (click)="openUser(user.id)" style='cursor: pointer;'>
+    {{ user.first_name + ' ' + user.last_name }}
+  </li>
+</ul>
+
+<router-outlet></router-outlet>

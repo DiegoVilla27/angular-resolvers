@@ -1,24 +1,15 @@
-import { Component, OnInit } from "@angular/core";
-import { UserService } from "./services/user.service";
-import { IUser } from "./interfaces/user.interface";
+import { Component } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"]
+  styleUrls: []
 })
-export class AppComponent implements OnInit {
-  users: IUser[] = [];
+export class AppComponent {
+  constructor(private _router: Router) {}
 
-  constructor(private _usersSvc: UserService) {}
-
-  ngOnInit(): void {
-    this.getUsers();
-  }
-
-  getUsers(): void {
-    this._usersSvc
-      .getUsers()
-      .subscribe((users: IUser[]) => (this.users = users));
+  goToUsers(): void {
+    this._router.navigate(["/users"]);
   }
 }

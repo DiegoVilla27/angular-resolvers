@@ -14,12 +14,12 @@ Structure for commits:
 
 > _`Subject is sentence-case`_ 
 
-- `feat: Subject` ()
-- `fix: Subject` ()
-- `styles: Subject` ()
-- `docs: Subject` ()
-- `test: Subject` ()
-- `refactor: Subject` ()
+- `feat: Subject`
+- `fix: Subject`
+- `styles: Subject`
+- `docs: Subject`
+- `test: Subject`
+- `refactor: Subject`
 
 ## Husky & Lint Staged
 

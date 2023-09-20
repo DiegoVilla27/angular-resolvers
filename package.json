@@ -11,7 +11,9 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "lint:commit": "npx lint-staged",
-    "pretier": "prettier . --write"
+    "pretier": "prettier . --write",
+    "test:coverage": "ng test --code-coverage",
+    "test:coverage:one": "ng test --code-coverage --watch --include=src/app/app.component.spec.ts"
   },
   "private": true,
   "dependencies": {

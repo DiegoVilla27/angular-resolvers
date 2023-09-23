@@ -4,10 +4,11 @@ import { UsersComponent } from "./components/users/users.component";
 import { UsersResolver } from "./resolvers/users/users.resolver";
 import { UserComponent } from "./components/user/user.component";
 import { UserResolver } from "./resolvers/user/user.resolver";
+import { ERoutes } from "./enums/routes.enums";
 
 const routes: Routes = [
   {
-    path: "users",
+    path: ERoutes.users,
     component: UsersComponent,
     resolve: {
       users: UsersResolver

@@ -1,8 +1,8 @@
 # Angular Resolvers
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
-
 How to use Resolvers in Angular!
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
 
 ## Development server
 
@@ -38,7 +38,20 @@ Install & configure Husky (Git Hooks), Lint Staged (Commits Staged Linter), Comm
 - Create a git hook to do a pre-commit and thus run the linter before each commit
   - `npx husky add .husky/pre-commit "npx lint-staged"`
 - Create a git hook to do a pre-push and thus run the tests before each push
-  - `npx husky add .husky/pre-push "ng test --watch=false"`
+  - Script -> `"test:staged": "git diff --cached --name-only -- '*.spec.ts' | xargs -I {} ng test --include={} --browsers=ChromeHeadless --watch=false"`
+    - `git diff` Show changes in files
+    - `--cached` Only files in staged
+    - `--name-only` Only names of files
+    - `'*.spec.ts'` Only files spec.ts
+    - `|` Redirect before command to after command
+    - `xargs` Take a list of elements and pass like arguments to another command
+    - `-I {}` Save list of elements in {}
+    - `ng test` Exec test
+    - `--` Ignore test arguments and continue 
+    - `--include={}` Include save list of elements to testing each
+    - `--browsers=ChromeHeadless` Tests must be proved in browser chrome headless (Exec chrome without GUI)
+    - `--watch=false` Don't open browser window
+  - `npx husky add .husky/pre-push "npm run test:staged"`
 
 > If Husky doesn't work on MacOS, run the command (Within the project): _`chmod ug+x .husky/*`_
 

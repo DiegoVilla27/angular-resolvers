@@ -14,7 +14,8 @@
     "lint:commit": "npx lint-staged",
     "pretier": "prettier . --write",
     "test:coverage": "ng test --code-coverage",
-    "test:coverage:one": "ng test --code-coverage --watch --include=src/app/app.component.spec.ts"
+    "test:coverage:one": "ng test --code-coverage --watch --include=src/app/app.component.spec.ts",
+    "test:staged": "git diff --cached --name-only -- '*.spec.ts' | xargs -I {} ng test --include={} --browsers=ChromeHeadless --watch=false"
   },
   "private": true,
   "dependencies": {

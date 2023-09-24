@@ -48,7 +48,7 @@ Install & configure Husky (Git Hooks), Lint Staged (Commits Staged Linter), Comm
     - `--include={}` Include save list of elements to testing each
     - `--browsers=ChromeHeadless` Tests must be proved in browser chrome headless (Exec chrome without GUI)
     - `--watch=false` Don't open browser window
-  - `npx husky add .husky/pre-commit "npx lint-staged && npm run test:staged"`
+  - `npx husky add .husky/pre-commit "npx lint-staged && git diff --cached --name-only -- '*.spec.ts' | xargs -I {} ng test --include={} --browsers=ChromeHeadless --watch=false"`
 - Create a git hook to do a pre-push and this run HERE ANYTHING COMMAND each push
   - `npx husky add .husky/pre-push "#HERE ANYTHING COMMAND"`
 

@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx lint-staged && npm run test:staged
+npx lint-staged && git diff --cached --name-only -- '*.spec.ts' | xargs -I {} ng test --include={} --watch=false --code-coverage --browsers=ChromeHeadless

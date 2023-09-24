@@ -47,7 +47,6 @@ Install & configure Husky (Git Hooks), Lint Staged (Commits Staged Linter), Comm
     - `xargs` Take a list of elements and pass like arguments to another command
     - `-I {}` Save list of elements in {}
     - `ng test` Exec test
-    - `--` Ignore test arguments and continue 
     - `--include={}` Include save list of elements to testing each
     - `--browsers=ChromeHeadless` Tests must be proved in browser chrome headless (Exec chrome without GUI)
     - `--watch=false` Don't open browser window

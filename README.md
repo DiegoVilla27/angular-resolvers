@@ -35,9 +35,7 @@ Install & configure Husky (Git Hooks), Lint Staged (Commits Staged Linter), Comm
 - Create _`commitlint.config.js`_ and configure.
 - Create a git hook to make a commit-msg and thus run a regular expression validator before each commit
   - `npx husky add .husky/commit-msg 'npx --no -- commitlint --edit ${1}'`
-- Create a git hook to do a pre-commit and thus run the linter before each commit
-  - `npx husky add .husky/pre-commit "npx lint-staged"`
-- Create a git hook to do a pre-push and thus run the tests before each push
+- Create a git hook to do a pre-commit and this run the lint-staged (prettier and eslint) and test before each commit
   - Script -> `"test:staged": "git diff --cached --name-only -- '*.spec.ts' | xargs -I {} ng test --include={} --browsers=ChromeHeadless --watch=false"`
     - `git diff` Show changes in files
     - `--cached` Only files in staged
@@ -50,7 +48,9 @@ Install & configure Husky (Git Hooks), Lint Staged (Commits Staged Linter), Comm
     - `--include={}` Include save list of elements to testing each
     - `--browsers=ChromeHeadless` Tests must be proved in browser chrome headless (Exec chrome without GUI)
     - `--watch=false` Don't open browser window
-  - `npx husky add .husky/pre-push "npm run test:staged"`
+  - `npx husky add .husky/pre-commit "npx lint-staged && npm run test:staged"`
+- Create a git hook to do a pre-push and this run HERE ANYTHING COMMAND each push
+  - `npx husky add .husky/pre-push "#HERE ANYTHING COMMAND"`
 
 > If Husky doesn't work on MacOS, run the command (Within the project): _`chmod ug+x .husky/*`_
 

@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
+import { ERoutes } from "./enums/routes.enums";
 
 @Component({
   selector: "app-root",
@@ -9,7 +10,7 @@ import { Router } from "@angular/router";
 export class AppComponent {
   constructor(private _router: Router) {}
 
-  goToUsers(): void {
-    this._router.navigate(["/users"]);
+  public goToUsers(): void {
+    this._router.navigate([`/${ERoutes.users}`]);
   }
 }

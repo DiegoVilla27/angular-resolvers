@@ -7,10 +7,10 @@ import { UserService } from "src/app/services/user.service";
 @Injectable({
   providedIn: "root"
 })
-export class UsersResolver implements Resolve<IUser[] | IUser> {
+export class UsersResolver implements Resolve<IUser[]> {
   constructor(private _usersSvc: UserService) {}
 
-  resolve(): Observable<IUser[] | IUser> {
+  resolve(): Observable<IUser[]> {
     return this._usersSvc.getUsers();
   }
 }

@@ -17,7 +17,13 @@ describe("AppComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it("should create the component", () => {
     expect(component).toBeTruthy();
+  });
+
+  it("should navigate to the /users route succesfully", () => {
+    const routerSpy = spyOn(component["_router"], "navigate");
+    component.goToUsers();
+    expect(routerSpy).toHaveBeenCalledWith(["/users"]);
   });
 });
